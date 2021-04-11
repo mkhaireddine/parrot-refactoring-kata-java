@@ -2,13 +2,17 @@ package parrot;
 
 public class NorwegianBlueParrot extends Parrot {
 
-  public NorwegianBlueParrot(int numberOfCoconuts, double voltage, boolean isNailed) {
-    super(ParrotTypeEnum.NORWEGIAN_BLUE, numberOfCoconuts, voltage, isNailed);
+  private static final double MAX_SPEED = 24.0;
+  private final double voltage;
+  private final boolean isNailed;
+
+  public NorwegianBlueParrot(double voltage, boolean isNailed) {
+    this.voltage = voltage;
+    this.isNailed = isNailed;
   }
 
-  @Override
   public double getSpeed() {
-    return (isNailed) ? 0 : getBaseSpeed(voltage);
+    return isNailed ? 0 : Math.min(MAX_SPEED, voltage * BASE_SPEED);
   }
 
 }

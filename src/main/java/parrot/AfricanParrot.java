@@ -2,13 +2,19 @@ package parrot;
 
 public class AfricanParrot extends Parrot {
 
-  public AfricanParrot(int numberOfCoconuts, double voltage, boolean isNailed) {
-    super(ParrotTypeEnum.AFRICAN, numberOfCoconuts, voltage, isNailed);
+  static final double LOAD_FACTOR = 9.0;
+  private static final int MIN_SPEED = 0;
+
+  int numberOfCoconuts;
+
+  public AfricanParrot(int numberOfCoconuts) {
+    super();
+    this.numberOfCoconuts = numberOfCoconuts;
   }
 
   @Override
   public double getSpeed() {
-    return Math.max(0, getBaseSpeed() - getLoadFactor() * numberOfCoconuts);
+    return Math.max(MIN_SPEED, BASE_SPEED - LOAD_FACTOR * numberOfCoconuts);
   }
 
 }
