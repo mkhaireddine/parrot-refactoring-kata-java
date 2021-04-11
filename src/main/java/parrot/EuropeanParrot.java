@@ -20,18 +20,5 @@ public class EuropeanParrot extends Parrot {
     }
   }
 
-  @Override
-  protected double getBaseSpeed(double voltage) {
-    return Math.min(24.0, voltage * getBaseSpeed());
-  }
 
-  @Override
-  protected double getLoadFactor() {
-    return 9.0;
-  }
-
-  @Override
-  protected double getBaseSpeed() {
-    return 12.0;
-  }
 }

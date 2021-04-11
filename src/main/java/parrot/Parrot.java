@@ -25,10 +25,16 @@ public abstract class Parrot {
 
   public abstract double getSpeed();
 
-  protected abstract double getBaseSpeed(double voltage);
+  protected double getBaseSpeed(double voltage) {
+    return Math.min(24.0, voltage * getBaseSpeed());
+  }
 
-  protected abstract double getLoadFactor();
+  protected double getLoadFactor() {
+    return 9.0;
+  }
 
-  protected abstract double getBaseSpeed();
+  protected double getBaseSpeed() {
+    return 12.0;
+  }
 
 }
